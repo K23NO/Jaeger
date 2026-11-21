@@ -1,0 +1,38 @@
+PLACA 1 - PCB principal del robot ball-and-plate (myRIO-1900)
+Curso: Diseno de Sistemas Mecatronicos - UTEC
+Disenada en KiCad 10.0.4
+
+ARCHIVOS
+  Placa1-B_Cu.gbl          Capa de cobre inferior (Bottom Layer). Unica capa de cobre.
+  Placa1-Edge_Cuts.gko     Contorno de la placa (Board Outline / Edge Cuts).
+  Placa1.drl               Perforaciones (Excellon, mm, coordenadas absolutas).
+  Placa1-taladros-reporte.txt   Resumen de brocas y cantidad de agujeros.
+
+DATOS DE LA PLACA
+  - Una sola cara: cobre en la capa INFERIOR (B.Cu). No hay vias ni agujeros metalizados
+    ni puentes de alambre.
+  - Tamano: 95.0 x 65.0 mm, rectangular.
+  - Unidades: milimetros.
+  - Origen (0,0) en la esquina INFERIOR IZQUIERDA de la placa: todo el diseno esta en el
+    primer cuadrante (X de 0 a 95 mm, Y de 0 a 65 mm). Gerber, contorno y taladros usan el
+    mismo origen.
+  - Los archivos estan vistos desde ARRIBA (lado de los componentes), como exporta KiCad.
+    Si el programa de la CNC fresa la cara inferior volteando la placa, hay que espejar segun
+    su procedimiento habitual para placas de una cara inferior.
+
+REGLAS USADAS (las del laboratorio)
+  - Ancho de pista minimo: 0.8 mm en senales; potencia de servos 2.5-3.0 mm
+    (un tramo corto de 1.9 mm junto a un pad).
+  - Separacion pista-pista minima: 0.8 mm.
+  - Clearance minimo (pista/pad a otro cobre): 0.3 mm.
+  - Plano de GND: separacion 0.8 mm a otras redes, ancho minimo 0.8 mm, conexion solida a
+    los pads de GND.
+  - Separacion minima entre pads vecinos: 0.84 mm (tiras de 2.54 mm); no pasa ninguna pista
+    entre ellos.
+
+PERFORACIONES (93 agujeros)
+  T1  0.8 mm   16 agujeros   (resistencias y capacitores C13/C14)
+  T2  1.0 mm   45 agujeros   (tiras hembra J1/J2, headers J3/J4, net-ties NT1/NT2)
+  T3  1.2 mm   26 agujeros   (borneras de 3.5 mm y capacitor C4)
+  T4  1.3 mm    2 agujeros   (bornera J10 de 5.0 mm)
+  T5  3.2 mm    4 agujeros   (tornillos M3, sin metalizar)

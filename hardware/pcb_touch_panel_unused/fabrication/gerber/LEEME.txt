@@ -1,0 +1,36 @@
+PLACA 2 - Adaptador y conversor del panel tactil (robot ball-and-plate)
+Curso: Diseno de Sistemas Mecatronicos - UTEC
+Disenada en KiCad 10.0.4
+
+ARCHIVOS
+  Placa2-B_Cu.gbl          Capa de cobre inferior (Bottom Layer). Unica capa de cobre.
+  Placa2-Edge_Cuts.gko     Contorno de la placa (Board Outline / Edge Cuts).
+  Placa2.drl               Perforaciones (Excellon, mm, coordenadas absolutas).
+  Placa2-taladros-reporte.txt   Resumen de brocas y cantidad de agujeros.
+
+DATOS DE LA PLACA
+  - Una sola cara: cobre en la capa INFERIOR (B.Cu). No hay vias ni agujeros metalizados.
+  - Tamano: 52.0 x 56.0 mm, esquinas redondeadas.
+  - Unidades: milimetros.
+  - Origen (0,0) en la esquina INFERIOR IZQUIERDA de la placa: todo el diseno esta en el
+    primer cuadrante (X de 0 a 52 mm, Y de 0 a 56 mm). Gerber, contorno y taladros usan el
+    mismo origen.
+  - Los archivos estan vistos desde ARRIBA (lado de los componentes), como exporta KiCad.
+    Si el programa de la CNC fresa la cara inferior volteando la placa, hay que espejar segun
+    su procedimiento habitual para placas de una cara inferior.
+
+REGLAS USADAS (las del laboratorio)
+  - Ancho de pista minimo: 0.6 mm (senales del panel 0.6 mm; el resto 0.8 mm).
+  - Separacion pista-pista minima: 0.8 mm.
+  - Clearance minimo (pista/pad a otro cobre): 0.3 mm.
+  - Plano de GND: separacion 0.8 mm a otras redes, ancho minimo 0.6 mm.
+
+ZONA FINA (atencion)
+  - J21 (contacto a presion del cable del panel, arriba al centro): 4 pads de 0.6 mm de ancho
+    con 0.4 mm de separacion entre si (paso 1.0 mm). Cumple el clearance de 0.3 mm, pero
+    requiere una fresa en V fina. Por favor revisar esta zona antes de fresar.
+
+PERFORACIONES (40 agujeros)
+  T1  0.8 mm   28 agujeros   (integrado DIP-14, resistencias y capacitores)
+  T2  1.0 mm    6 agujeros   (tira de espadines J22)
+  T3  3.2 mm    6 agujeros   (tornillos M3, sin metalizar)

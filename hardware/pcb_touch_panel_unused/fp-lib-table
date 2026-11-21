@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Placa2")(type "KiCad")(uri "${KIPRJMOD}/Placa2.pretty")(options "")(descr "Huellas propias de la placa 2"))
+)

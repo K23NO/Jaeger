@@ -1,0 +1,21 @@
+(version 1)
+
+# Reglas de la CNC de UTEC: una cara (B.Cu), sin vias metalizadas.
+
+(rule "CNC clearance minimo 0.3 mm"
+	(constraint clearance (min 0.3mm)))
+
+(rule "CNC separacion pista-pista 0.8 mm"
+	(condition "A.Type == 'Track' && B.Type == 'Track'")
+	(constraint clearance (min 0.8mm)))
+
+(rule "CNC ancho de pista minimo 0.6 mm"
+	(condition "A.Type == 'Track'")
+	(constraint track_width (min 0.6mm)))
+
+(rule "CNC sin vias"
+	(constraint disallow via))
+
+(rule "CNC sin pistas en F.Cu"
+	(layer "F.Cu")
+	(constraint disallow track))

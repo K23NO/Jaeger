@@ -1,0 +1,24 @@
+# Servicio de la RPi: deteccion de la pelota -> UART al myRIO (y video en el puerto 8090).
+# Instalar (una vez):
+#   sudo cp ~/vision/vision-pelota.service /etc/systemd/system/
+#   sudo systemctl enable --now vision-pelota
+# Ver estado:    systemctl status vision-pelota
+# Ver registro:  journalctl -u vision-pelota -f
+# Detener / arrancar / reiniciar:  sudo systemctl stop|start|restart vision-pelota
+
+[Unit]
+Description=Deteccion de la pelota (Brio) y envio de la posicion por UART al myRIO
+After=dev-serial0.device
+Wants=dev-serial0.device
+
+[Service]
+Type=simple
+User=rp11
+WorkingDirectory=/home/rp11/vision
+# 230400 baudios (2-nov): la trama tarda ~1 ms. Main.vi del myRIO debe estar igual.
+ExecStart=/usr/bin/python3 /home/rp11/vision/rpi_camara.py --uart --focus 20 --http 8090 --baud 230400
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
